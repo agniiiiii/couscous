@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Text Page</title>
+  <style>
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('./TCAntiquatedSans-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      font-family: 'CustomFont', sans-serif;
+      background: url('./pagina.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: black;
+      flex-direction: column;
+    }
+
+    .centered-text {
+      position: absolute;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      bottom:61.5%;
+      left:13%;
+    }
+
+    .image {
+      position: absolute;
+      max-width: 80%;
+      width: 40%;
+      left:60%;
+      bottom:15%;
+    }
+  </style>
+</head>
+<body>
+  <div class="centered-text"> mai contare su di noi!!!!
+  </div>
+  <img src="./baci.png" alt="Example Image" class="image">
+</body>
+</html>

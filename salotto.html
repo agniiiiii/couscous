@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dialogue Page</title>
+  <style>
+     @font-face {
+      font-family: 'CustomFont';
+      src: url('./TCAntiquatedSans-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'CustomFont', sans-serif;
+      background: url('./salotto.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    #character1 {
+      position: absolute;
+      bottom: 9px;
+      left: 0.5px;
+      width: 60vw;
+    }
+
+    #character2 {
+      position: absolute;
+      top: 37%;
+      left: 130px;
+      width: 94vw;
+    }
+
+    .text-box {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      max-width: 200px;
+      text-align: center;
+      display: none;
+    }
+
+    #text1 {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      
+    }
+
+    #text2 {
+      top: 42%;
+      left: 10%;
+    }
+
+    #text2b {
+        top:35%;
+        left:50%
+    }   
+
+    #icon1 {
+       top: 80%;
+       width: 70px;
+    } 
+
+    #icon2 {
+       left: 90%;
+       width: 70px;
+       top:40%;
+    } 
+
+    #icon3 {
+       left: 95%;
+       width: 70px;
+    }
+
+    .arrow {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 70px;
+      height: 70px;
+      background: url('./freccia1.png') no-repeat center center;
+      background-size: contain;
+      display: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="./agni1.png" id="character1" class="character" alt="Character 1">
+    <img src="./cri1.png" id="character2" class="character" alt="Character 2">
+
+    <div id="text1" class="text-box">agnese....<br> io stavo dormendo.....<br> comunque c'è un problema....</div>
+    <div id="text2" class="text-box">MADONNA DIMMI, <br> dobbiamo muoverci lo hanno rapito</div>
+    <div id="text2b" class="text-box">amo..la pistola spara cous cous.....</div>
+
+    <img src="./uno.png" class="icon" id="icon1">
+    <img src="./due.png" class="icon" id="icon2">
+    <img src="./tre.png" class="icon" id="icon3">
+
+    <a href="consiglio.html" class="arrow" id="arrow"></a>
+  </div>
+
+  <script>
+    const text1 = document.getElementById('text1');
+    const text2 = document.getElementById('text2');
+    const text2b = document.getElementById('text2b');
+
+    const icon1 = document.getElementById('icon1');
+    const icon2 = document.getElementById('icon2');
+    const icon3 = document.getElementById('icon3');
+    const arrow = document.getElementById('arrow');
+
+    function showText(textBox) {
+      textBox.style.display = 'block';
+      setTimeout(() => {
+        textBox.style.display = 'none';
+      }, 2000);
+    }
+
+    icon1.addEventListener('click', () => showText(text1));
+    icon2.addEventListener('click', () => showText(text2));
+    icon3.addEventListener('click', () => {
+      showText(text2b);
+      setTimeout(() => {
+        arrow.style.display = 'block';
+      }, 200);
+    });
+  </script>
+</body>
+</html>

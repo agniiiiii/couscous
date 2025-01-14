@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Welcome Page</title>
+  <style>
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('./TCAntiquatedSans-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'CustomFont', sans-serif;
+      background: url('./muro.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: rgb(10, 9, 9); /* Cambia il colore del testo per risaltare sullo sfondo */
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .center-text {
+      font-size: 2.5rem;
+      color: black;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+
+    .underlined-text {
+      font-size: 1rem;
+      color:black;
+      text-decoration: underline;
+      margin-top: 10px;
+    }
+
+    .random-images img {
+      position: absolute;
+      max-width: 15vw;
+      max-height: 15vh;
+      z-index: 1;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .random-images img:hover {
+      transform: scale(1.1);
+    }
+
+    .image1 {
+      top: 10%;
+      left: 20%;
+    }
+
+    .image2 {
+      bottom: 15%;
+      right: 25%;
+    }
+
+    .image3 {
+      top: 40%;
+      right: 5%;
+    }
+
+    @media screen and (max-width: 768px) {
+      .center-text {
+        font-size: 2.2rem;
+      }
+
+      .underlined-text {
+        font-size: 1.3rem;
+      }
+
+      .random-images img {
+        max-width: 25vw;
+        max-height: 25vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="center-text">i thought i'd buy a gun</div>
+    <div class="underlined-text">scegli una stella</div>
+    <div class="random-images">
+      <!-- Randomly positioned images with links -->
+      <a href="characters.html"><img src="stella1.png" alt="Random Image 1" class="image1"></a>
+      <a href="characters.html"><img src="stella2.png" alt="Random Image 2" class="image2"></a>
+      <a href="characters.html"><img src="stella3.png" alt="Random Image 3" class="image3"></a>
+    </div>
+  </div>
+</body>
+</html>

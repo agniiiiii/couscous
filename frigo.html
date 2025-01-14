@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+  <style>
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('./TCAntiquatedSans-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('./muro1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'CustomFont', sans-serif;
+    }
+
+    .fridge {
+      position: absolute;
+      top: 155px;
+      width: 460px;
+    }
+
+    .text-container {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'CustomFont', sans-serif;
+      font-size: 2rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .text-container span {
+      opacity: 0;
+      animation: reveal 0.5s forwards;
+    }
+
+    .arrow {
+      position: absolute;
+      bottom: 10%;
+      left: 75%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 58px;
+      background: url('./freccia1.png') no-repeat center center;
+      background-size: contain;
+      display: none;
+      cursor: pointer;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="./frigo.png" alt="Frigo" class="fridge">
+  <div class="text-container" id="text-container"></div>
+  <a href="salotto.html" id="arrow" class="arrow"></a>
+
+  <script>
+    const textContainer = document.getElementById('text-container');
+    const arrow = document.getElementById('arrow');
+    const textLines = ["EMERGENZA", "h10.20 salotto", "vieni armato"];
+    const colors = ["red", "gold", "violet", "yellow", "chartreuse", "crimson", "orange"];
+
+    let totalDelay = 0;
+
+    textLines.forEach((line, lineIndex) => {
+      const lineContainer = document.createElement('div');
+      line.split('').forEach((char, charIndex) => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.color = colors[(lineIndex + charIndex) % colors.length];
+        const delay = (lineIndex * 1 + charIndex * 0.2);
+        span.style.animationDelay = `${delay}s`;
+        totalDelay = Math.max(totalDelay, delay + 0.5); // Add 0.5s for the reveal animation
+        lineContainer.appendChild(span);
+      });
+      textContainer.appendChild(lineContainer);
+    });
+
+    // Show the arrow after the text animation is complete
+    setTimeout(() => {
+      arrow.style.display = 'block';
+    }, totalDelay * 1000);
+  </script>
+</body>
+</html>
